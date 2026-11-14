@@ -1,0 +1,11 @@
+# Mode développement : docker compose -f docker-compose.yml -f docker-compose.dev.yml up --build
+services:
+  app:
+    build:
+      context: .
+      target: dev
+    environment:
+      LIVE_RELOAD: "1"
+    volumes:
+      - ./server:/app/server
+      - ./public:/app/public

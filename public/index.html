@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Circuit Rando</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<aside>
+  <h1>Circuit Rando</h1>
+
+  <label class="drop" id="drop">
+    <input type="file" id="file" multiple accept=".gpx,.geojson,.json,.kml" hidden>
+    Déposez vos fichiers GPX, GeoJSON ou KML ici, ou cliquez pour les choisir
+  </label>
+
+  <label class="opt"><input type="checkbox" id="autoPoi" checked>
+    <span>Ajouter automatiquement les cabanes, refuges, gîtes, points d’eau et passages délicats à moins de 1 km des tracés importés</span></label>
+  <p class="mute" id="status" role="status"></p>
+
+  <section>
+    <h2>Charger depuis une adresse</h2>
+    <input type="text" id="urlIn" placeholder="Adresse d’un fichier GeoJSON, GPX ou KML">
+    <div class="btns">
+      <button id="urlAdd">Charger</button>
+      <button id="pnr">Parcs naturels régionaux (ADEME)</button>
+      <button id="refView">Refuges de la zone affichée</button>
+    </div>
+  </section>
+
+  <section>
+    <h2>Calques</h2>
+    <ul id="layers"></ul>
+    <p class="mute" id="empty">Aucun calque. Importez un fichier.</p>
+  </section>
+
+  <section>
+    <h2>Fond de carte</h2>
+    <select id="base" aria-label="Fond de carte"></select>
+  </section>
+
+  <section>
+    <h2>Projet</h2>
+    <div class="btns">
+      <button id="save">Enregistrer le projet</button>
+      <button id="open">Ouvrir un projet</button>
+    </div>
+    <p class="mute">Fichier JSON local : garde vos calques et leurs couleurs.</p>
+    <h2 style="margin-top:14px">Projets du serveur</h2>
+    <input type="text" id="projName" placeholder="Nom du projet">
+    <div class="btns"><button id="srvSave">Enregistrer sur le serveur</button></div>
+    <select id="srvList" aria-label="Projets enregistrés"></select>
+    <div class="btns"><button id="srvOpen">Ouvrir</button><button id="srvDel">Supprimer</button></div>
+    <input type="file" id="proj" accept=".json" hidden>
+  </section>
+</aside>
+<div id="map"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tmcw/togeojson@5.8.1/dist/togeojson.umd.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

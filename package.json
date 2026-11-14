@@ -1,0 +1,22 @@
+{
+  "name": "carte-zones",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Carte de zones, tracés et refuges avec stockage PostgreSQL",
+  "main": "server/index.js",
+  "scripts": { 
+    "start": "node server/index.js",
+    "dev": "nodemon -L --watch server server/index.js"
+  }
+    ,
+  "engines": {
+    "node": ">=20" 
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "pg": "^8.13.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
